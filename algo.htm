@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>my algorithm try
+	</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<style type="text/css">
+		nav{
+			background-color: red;
+			margin: 10px 10px 0px 10px;
+		}
+		nav ul{
+			margin: 0px;
+			list-style-type: none;
+			padding: 5px 0px 5px 0px;
+		}
+		nav ul li{
+			display: inline;
+
+		}
+		.head1{
+			color: red;
+		}
+		.head2{
+			color: blue;
+		}
+	</style>
+	<script type="text/javascript">
+		function Fibonacci(num){
+			this.num = num;
+			this.result = 1;
+			var num1=0;
+			var num2=1;
+			for(var i=0; i<num-1; i++){
+				this.result=num1+num2;
+				num1=num2;
+				num2=this.result;
+				//alert(this.result);
+
+			};
+		}
+		// var Fibonacci2 = function(n){
+		// 	return n<2?n:Fibonacci2(n-1)+Fibonacci2(n-2);
+		// };
+		// for(var i=0; i<=40; i++){
+		// 	document.writeln('//'+i+' :'+Fibonacci2(i));
+		// };
+
+
+		// var fibonacci = (function(){
+		// 	var memo = [0,1];
+		// 	var fib = function(n){
+		// 		var result = memo[n];
+		// //		console.log(n+'this is n  '+typeof result);
+		// 		if(typeof result !== 'number'){
+		// 			result = fib(n-1)+fib(n-2);
+		// 			memo[n] = result;
+		// 		}
+		// 		console.log(memo);
+		// 		return result;
+		// 	};
+		// 	return fib;
+
+		// }());
+		// for(var i=0; i<=100; i++){
+		// 	document.writeln(fibonacci(i));
+		// }
+
+		// function init() {
+  //  			var name = "Mozilla"; // name is a local variable created by init
+  //   		function displayName() { // displayName() is the inner function, a closure
+  //       		alert (name); // displayName() uses variable declared in the parent function    
+  //   		}
+  //  			return displayName;    
+		// }
+		// var lin = init();
+		// console.log(lin);
+		// // lin();
+		// var makeAdder = (function() {
+		// 	var x = 5;
+  // 			function add(y) {
+  //   			return x + y;
+  // 			};
+  // 			return add;
+		// }());
+
+
+		// var add5 = makeAdder(5);
+		// document.writeln(add5);
+
+
+		// var module = (function(){
+		// 	//var self = this;
+		// 	var name = "lin";
+		// 	var age = 25;
+		
+		// 	return {
+		// 		get:function(){
+		// 			console.log(name);
+		// 		},
+		// 		set:function(name){
+		// 			this.name = name;
+		// 			console.log(this.name+" set");
+		// 		}
+		// 	};
+			
+		// }());
+		// console.log(module.set('tian'));
+
+		var fibonacci = (function(){
+			var memo = [0,1];
+			var fib = function(num){
+				var result = memo[num];
+				if(typeof result !== 'number'){
+					result = fib(num-1)+fib(num-2);
+					memo[num] = result;
+				}
+				return result;
+			}
+			return fib;
+		}());
+		for(var i=0; i<10; i++){
+			document.writeln(fibonacci(i));
+		};
+
+		var obj = {
+			name:"lin yao tian",
+			get_name:function(){
+				return this.name;
+			},
+			says:function(){
+				return this.saying || '';
+			}
+		};
+		var myObj = Object.create(obj);
+		myObj.name = 'linlin';
+		//alert(myObj.says());
+
+		var o = {a:1, b:2, c:3};
+		for (var it in o){
+			console.log(it);
+		};
+
+		//getOwnPropertyNames(o)
+		// var o = {
+		// 	name:"lin",
+		// 	age:25,
+		// 	nation:'china'
+		// };
+		// console.log(Object.getOwnPropertyNames(o));
+		// console.log(Object.keys(o));
+
+		var colors = ['red', 'green', 'blue'];
+		colors.forEach(function(color) {
+		  console.log(color);
+		});
+
+		// var a = 0.1;
+		// var b = 0.2;
+		// var c = a*2 + b*2;
+		// alert(c/2);
+
+		//function as the argument
+		// var map = function(f, a){
+		// 	var result= [], i;
+		// 	for(i=0; i<a.length; i++){
+		// 		result[i] = f(a[i]);
+		// 	}
+		// 	console.log(result);
+		// }
+		// map(function(x){return x*x*x;}, [1,2,3]);
+
+		//regular expression
+		// var reg = /jas/;
+		// var result = reg.exec('fhjashdkj');
+		// console.log(result);
+		// var str = "fhjashdkj";
+		
+		// console.log(str.match(/jas/));
+		// console.log(str.search(/ja/));
+		// console.log(str.split(/ja/));
+		// console.log(str.replace(/(j)a/, '$1'));
+</script>
+		
+ <script>
+  $(document).ready(function() {
+
+   //$("p").click(function(){$("img").slideDown()});
+   $("#slideUp").click(function(){$("img").slideUp();
+		$(this).unbind()});
+   $("#slideDown").click(function(){$("img").slideToggle()});
+   $("#fadein").bind('focusout', function(){$("img").fadeOut(4000)});
+   $("#link").bind('hover', function(){alert("hover")});
+   $(".list").each(function(){$(this).hide();
+   	console.log(this)});
+   //alert($.contains(document.getElementById("fadein"), document.getElementById("link")));
+   $("#try").click(function(){
+   		$(this).addClass("head2");
+   		$(this).removeClass("head1");
+   		console.log(this);
+   		$f = $("#try").parent();
+   		console.log($f);
+   		$("#link").replaceWith($("#slideUp"));
+   });
+   $("#lighting").bind('click', function(){
+   		var arr = [1,2,3,4];
+   		var result = $.inArray(1, arr);
+   		console.log(window.name);
+
+   });
+ 
+   //setInterval(alerttt, 1000);
+   // $("#body").click(function(){
+   // 	alert("you clicked");
+   // 	console.log("ddddd")});
+ 
+  });//end doc ready
+ function alerttt(event){
+   	var x = event.clientX;
+   	var y = event.clientY;
+   	console.log('x: '+x+'   y: '+y);
+   //	$('<p>try</p>').appendTo(document.body);
+   // var st = document.getElementById('try1');
+   // console.log(st);
+   // st.style.position = "absolute";
+
+   // st.style.left = x+'px';
+   // st.style.top = y+'px';
+   // st.style.z-index=-1;
+   $("#try1").css({position, absolute; left, x+'px'; top, y+'px'});
+   }
+</script>
+</head>
+<body onmousedown="alerttt(event)">
+	<iframe id="mainIframe" name="mainIframe" src="http://www.baidu.com" frameborder="10" scrolling="auto" width="500"></iframe>
+	<p id="try1" class="head1">please click on me</p>
+	<div id="body">
+	<a id="link" href="#">let's see!
+		<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/SMirC-hi.svg/320px-SMirC-hi.svg.png">
+	</a>
+	<button id="slideUp" class="list">become smaller</button>
+	<button id="slideDown" class="list">become bigger</button>
+	<button id="fadein" class="list">fade In</button>
+	<button id="lighting">lighting</button>
+	
+	<div id="navigation"><p>hhww</p>
+		<time datetime="2014/10/10">now</time>
+		<nav>
+			<ul>
+				<li>hh</li>
+				<li>ww</li></ul></nav>
+		<section>hh</section>
+		<section>ww</section>
+		<aside>???</aside>
+		<footer>footer</footer>
+		<form action="sdkjhfkjs.php" method="post">
+			<input type="number"></form>
+
+		<header>header</header></div>
+
+
+	<button id="move_up">Move Up</button>
+ <button id="move_down">Move Down</button>
+ <button id="color">Change Color</button>
+ <button id="disappear">Disappear/Re-appear</button>
+ <div id="change_me">Make Me Do Stuff!</div>
+</div>
+</body>
+</html>
