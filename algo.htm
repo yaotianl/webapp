@@ -214,7 +214,7 @@
    // $("#body").click(function(){
    // 	alert("you clicked");
    // 	console.log("ddddd")});
- 
+ getTime();
   });//end doc ready
  function alerttt(event){
    	var x = event.clientX;
@@ -230,6 +230,19 @@
    // st.style.z-index=-1;
    //$("#try1").css({position, absolute; left, x+'px'; top, y+'px'});
    }
+  
+  function getTime(){
+  	var d = new Date();
+	//alert(d);	
+	$('body').append(d);
+	var hour = d.getHours();
+	var min = d.getMinutes();
+	var second = d.getSeconds();
+	hour = hour.toString();
+	$('#change_me').append(hour);
+	$("#change_me").append("<em>hi there</em>");
+  }
+
 </script>
 </head>
 <body onmousedown="alerttt(event)">
