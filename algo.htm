@@ -214,7 +214,11 @@
    // $("#body").click(function(){
    // 	alert("you clicked");
    // 	console.log("ddddd")});
- getTime();
+  $("body").on("click", "#try1", function(){
+	console.log($(this));
+	$(this).after("<p>hhhhh here I am</p>");});
+
+   getTime();
   });//end doc ready
  function alerttt(event){
    	var x = event.clientX;
