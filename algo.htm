@@ -5,6 +5,15 @@
 	<title>my algorithm try
 	</title>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="color.js"></script>
+	
+	<script src="libs/jquery/jquery.js"></script>
+	<script src="libs/jquery/jquery-ui.js"></script>
+	<script src="libs/color.js"></script>
+	<script src="libs/jquery-loader.js"></script>
+	<script src="libs/qunit/qunit.js"></script>
+	<script src="src/iris.js"></script>
+
 	<style type="text/css">
 		nav{
 			background-color: red;
@@ -185,7 +194,7 @@
 		
  <script>
   $(document).ready(function() {
-
+  	$('#color-picker').iris();
    //$("p").click(function(){$("img").slideDown()});
    $("#slideUp").click(function(){$("img").slideUp();
 		$(this).unbind()});
@@ -214,8 +223,12 @@
    // $("#body").click(function(){
    // 	alert("you clicked");
    // 	console.log("ddddd")});
-  $("body").on("click", "#try1", function(){
+  $(document).on("change", "#color-picker", function(){
+  	alert($("#color-picker").value());
+  })
+  $("body").on("click.list", "#try1", function(){
 	console.log($(this));
+	console.log(this);
 	$(this).after("<p>hhhhh here I am</p>");});
 
    getTime();
@@ -282,6 +295,9 @@
  <button id="color">Change Color</button>
  <button id="disappear">Disappear/Re-appear</button>
  <div id="change_me">Make Me Do Stuff!</div>
+ <input type="text" id='color-picker' value="#bada55" />
+ 
+
 </div>
 </body>
 </html>
