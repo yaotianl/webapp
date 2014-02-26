@@ -232,13 +232,60 @@
   	var a = _.map([1,2,3], function(num){
   		return num*3;
   	});
+  	var b = _.find([1,2,3,4], function(num){
+  		return num%2==0;
+  	});
+  	var c = _.filter([1,2,3,4], function(num){
+  		return num%2==0;
+  	});
+  	console.log("find: "+b);
+  	console.log("filter: "+c);
   	// console.log(a);
   	// console.log($(this));
+
+  	//learn the apply, bind and bindAll
+  	//how to use apply
+  	var func = function beautiful(){
+	  alert(this + ' is beautiful');
+	};
+	//func();
+	func.apply("Lin");
+
+	//why do we need bind
+	function Lin(age){
+		this.age = age;
+		this.says = function(){
+			alert(this.age+'years');
+		}
+	}
+	var leo = new Lin(25);
+	//leo.says();
+	// var john = leo.says;
+	// john.apply(leo);
+	var john = _.bind(leo.says, leo);
+	john();
+
+	function People(name){
+		this.name = name;
+		this.what = function(){
+			alert(this.name);
+		}
+	}
+	var lin = new People("yaotian");
+	// var func = _.bind(lin.what, lin);
+	// func();
+	_.bindAll(lin, "what");
+	var func = lin.what;
+	func();
   })
-  $("body").on("click.list", "#try1", function(){
+  $("body").on("click", "#try1", function(){
 	// console.log($(this));
 	// console.log(this);
 	//$(this).after("<p>hhhhh here I am</p>");
+	
+	//var sec = royal.show;
+
+
 	});
 
    getTime();
