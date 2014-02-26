@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8"/>
@@ -6,13 +6,8 @@
 	</title>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="color.js"></script>
+	<script type="text/javascript" src="underscore.js"></script>
 	
-	<script src="libs/jquery/jquery.js"></script>
-	<script src="libs/jquery/jquery-ui.js"></script>
-	<script src="libs/color.js"></script>
-	<script src="libs/jquery-loader.js"></script>
-	<script src="libs/qunit/qunit.js"></script>
-	<script src="src/iris.js"></script>
 
 	<style type="text/css">
 		nav{
@@ -194,7 +189,6 @@
 		
  <script>
   $(document).ready(function() {
-  	$('#color-picker').iris();
    //$("p").click(function(){$("img").slideDown()});
    $("#slideUp").click(function(){$("img").slideUp();
 		$(this).unbind()});
@@ -223,16 +217,34 @@
    // $("#body").click(function(){
    // 	alert("you clicked");
    // 	console.log("ddddd")});
-  $(document).on("change", "#color-picker", function(){
-  	alert($("#color-picker").value());
+  $("#try1").on("click", {msg:"hi this is lin"}, function show(event){
+  	alert(event.data.msg);
+  });
+  $("#navigation").on("click", "li", function(){
+  	_.each([1,2,3], function(num){
+  	//		alert(num);
+  	});
+  	_.each($("li"), function(value, key, list){
+  		console.log(value+":"+key+":"+list);
+  		console.log(value);
+  		console.log(list);
+  	});
+  	var a = _.map([1,2,3], function(num){
+  		return num*3;
+  	});
+  	// console.log(a);
+  	// console.log($(this));
   })
   $("body").on("click.list", "#try1", function(){
-	console.log($(this));
-	console.log(this);
-	$(this).after("<p>hhhhh here I am</p>");});
+	// console.log($(this));
+	// console.log(this);
+	//$(this).after("<p>hhhhh here I am</p>");
+	});
 
    getTime();
   });//end doc ready
+
+
  function alerttt(event){
    	var x = event.clientX;
    	var y = event.clientY;
@@ -262,7 +274,7 @@
 
 </script>
 </head>
-<body onmousedown="alerttt(event)">
+<body >
 	<iframe id="mainIframe" name="mainIframe" src="http://www.baidu.com" frameborder="10" scrolling="auto" width="500"></iframe>
 	<p id="try1" class="head1">please click on me</p>
 	<div id="body">
@@ -295,7 +307,7 @@
  <button id="color">Change Color</button>
  <button id="disappear">Disappear/Re-appear</button>
  <div id="change_me">Make Me Do Stuff!</div>
- <input type="text" id='color-picker' value="#bada55" />
+
  
 
 </div>
