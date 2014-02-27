@@ -196,7 +196,8 @@
    $("#fadein").bind('focusout', function(){$("img").fadeOut(4000)});
    $("#link").bind('hover', function(){alert("hover")});
    $(".list").each(function(){$(this).hide();
-   	console.log(this)});
+   //	console.log(this);
+   });
    //alert($.contains(document.getElementById("fadein"), document.getElementById("link")));
    $("#try").click(function(){
    		$(this).addClass("head2");
@@ -278,11 +279,23 @@
 	var func = lin.what;
 	func();
   })
+
+	
+  //test the _.where
+  $("#where").on("click", function(){
+  	var lista = [{title: "Cymbeline", author: "Shakespeare", year: 1611},
+    {title: "The Tempest", author: "Shakespeare", year: 1611}];
+    var listb = [1,2,3,1,2,5];
+    var listc = ["lin", "wang", "john"];
+  	console.log(_.where(lista, {author: "Shakespeare", year: 1611}));
+  	console.log(_.where(listb, 1));//doesn't work!
+  	console.log(_.where(listc, "lin"));
+  })
   $("body").on("click", "#try1", function(){
 	// console.log($(this));
 	// console.log(this);
 	//$(this).after("<p>hhhhh here I am</p>");
-	
+
 	//var sec = royal.show;
 
 
@@ -353,6 +366,7 @@
  <button id="move_down">Move Down</button>
  <button id="color">Change Color</button>
  <button id="disappear">Disappear/Re-appear</button>
+ <button id="where" class="test">try where</button>
  <div id="change_me">Make Me Do Stuff!</div>
 
  
