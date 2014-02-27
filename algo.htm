@@ -221,7 +221,11 @@
   $("#try1").on("click", {msg:"hi this is lin"}, function show(event){
   	alert(event.data.msg);
   });
-  $("#navigation").on("click", "li", function(){
+
+  //try the ._each
+  $("#each").on("click", function(){
+  	console.log("----------here is the each/map/find/filter part---------");
+
   	_.each([1,2,3], function(num){
   	//		alert(num);
   	});
@@ -243,9 +247,13 @@
   	console.log("filter: "+c);
   	// console.log(a);
   	// console.log($(this));
+  	console.log("--------------------------------------------------------");
+
+  })
 
   	//learn the apply, bind and bindAll
   	//how to use apply
+  $("#bind").on("click", function(){
   	var func = function beautiful(){
 	  alert(this + ' is beautiful');
 	};
@@ -279,7 +287,6 @@
 	var func = lin.what;
 	func();
   })
-
 	
   //test the _.where
   $("#where").on("click", function(){
@@ -287,10 +294,22 @@
     {title: "The Tempest", author: "Shakespeare", year: 1611}];
     var listb = [1,2,3,1,2,5];
     var listc = ["lin", "wang", "john"];
+    console.log("-------------------here is the where part---------------");
   	console.log(_.where(lista, {author: "Shakespeare", year: 1611}));
   	console.log(_.where(listb, 1));//doesn't work!
   	console.log(_.where(listc, "lin"));
+  	console.log(_.findWhere(lista, {year:1644}))
+  	console.log("--------------------------------------------------------");
   })
+
+  //test the _.every and _.some
+  $("#every").on("click", function(){
+  	console.log("------  ------here is the every/some part---------------");
+  	console.log(_.every([0, 1, null, true]));
+  	console.log(_.some([0,1,null,true]));
+  	console.log("--------------------------------------------------------");
+  })
+
   $("body").on("click", "#try1", function(){
 	// console.log($(this));
 	// console.log(this);
@@ -366,7 +385,15 @@
  <button id="move_down">Move Down</button>
  <button id="color">Change Color</button>
  <button id="disappear">Disappear/Re-appear</button>
- <button id="where" class="test">try where</button>
+
+
+ <div id="testArea">
+ 	<br>
+ 	<button id="each" class="test">try each</button>
+ 	<button id="bind" class="test">try bind</button>
+ 	<button id="where" class="test">try where</button>
+ 	<button id="every" class="test">try every</button>
+ </div>
  <div id="change_me">Make Me Do Stuff!</div>
 
  
